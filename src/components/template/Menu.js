@@ -4,7 +4,7 @@ import { NavLink } from "react-router-dom";
 export default props => (
   <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
     <NavLink className="navbar-brand" to="/">
-      <i className="fa fa-list-alt" /> SupermarketList
+      <i className="fa fa-list-alt" /> SuperMarket
     </NavLink>
     <button
       className="navbar-toggler"
