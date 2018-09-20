@@ -5,12 +5,30 @@ import axios from "axios";
 
 // Components
 import Header from "../template/Header";
-import List from "../template/List";
 import Form from "../template/Form";
+import IconButton from "../template/IconButton";
 
 // Constants
 const URL_API = "http://localhost:3000/categories";
 const URL_SOCKET = "http://localhost:3001";
+
+const ListRender = ({ items, parentId = null }) => (
+  <ul className="list-group">
+    {items.filter(item => item.parentId === parentId).map(item => (
+      <li className="list-group-item" key={item.id}>
+        {item.name}
+        <IconButton
+          color="danger"
+          icon="trash-o"
+          onClick={() => this.deleteItem(item)}
+        />
+        {items.find(testItem => testItem.parentId === item.id) && (
+          <ListRender items={items} parentId={item.id} />
+        )}
+      </li>
+    ))}
+  </ul>
+);
 
 // Component Statefull
 class Home extends Component {
@@ -82,7 +100,7 @@ class Home extends Component {
       <div>
         <Header name="Home" small="MyList" />
         <Form formChange={this.formChange} formAdd={this.formAdd} />
-        <List list={this.state.list} deleteItem={this.deleteItem} />
+        <ListRender items={this.state.list} deleteItem={this.deleteItem} />
       </div>
     );
   }
