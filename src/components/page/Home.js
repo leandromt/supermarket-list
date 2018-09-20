@@ -4,9 +4,9 @@ import socketIOClient from "socket.io-client";
 import axios from "axios";
 
 // Components
-import Header from "./Header";
-import List from "./List";
-import Form from "./Form";
+import Header from "../template/Header";
+import List from "../template/List";
+import Form from "../template/Form";
 
 // Constants
 const URL_API = "http://localhost:3000/categories";
