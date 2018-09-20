@@ -83,6 +83,7 @@ class Home extends Component {
   }
 
   render() {
+    // Recursive Render Hierarchical List
     const ListRender = ({ items, parentId = null }) => (
       <ul className="list-group">
         {items.filter(item => item.parentId === parentId).map(item => (
