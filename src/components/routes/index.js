@@ -1,10 +1,10 @@
 import React from "react";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 
-import Menu from "./../Template/Menu";
-import Home from "./../Template/Home";
-import About from "./../Template/About";
-import Erro404 from "./../Template/Erro404";
+import Menu from "./../template/Menu";
+import Home from "./../template/Home";
+import About from "./../template/About";
+import Erro404 from "./../template/Erro404";
 
 export default props => (
   <BrowserRouter>

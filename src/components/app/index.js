@@ -3,7 +3,7 @@ import "font-awesome/css/font-awesome.min.css";
 import "./custom.css";
 
 import React from "react";
-import Routes from "../Routes";
+import Routes from "../routes";
 
 export default props => (
   <div>
