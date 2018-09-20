@@ -11,5 +11,17 @@ export default props => (
         github.com/leandromt/supermarket-list
       </a>
     </p>
+
+    <h4>Developer</h4>
+    <p>
+      Leandro Tavares
+      <br />
+      LinkedIn:
+      <a href="https://linkedin.com/in/tavares-leandro/">
+        linkedin.com/in/tavares-leandro/
+      </a>
+      <br />
+      Email: leandro.mendestavares@gmail.com
+    </p>
   </div>
 );
