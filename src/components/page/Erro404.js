@@ -1,10 +1,20 @@
 import React, { Component } from "react";
+import { NavLink } from "react-router-dom";
+
+import PageHeader from "../template/Header";
 
 class Erro404 extends Component {
   render() {
     return (
       <div>
-        <h1>Erro404</h1>
+        <PageHeader name="Erro" small="404" />
+        <h4>Ops! Page Not Fold.</h4>
+        <p>
+          back to{" "}
+          <NavLink className="navbar-brand" to="/">
+            MyList
+          </NavLink>
+        </p>
       </div>
     );
   }
