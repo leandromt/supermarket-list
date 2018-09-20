@@ -53,7 +53,7 @@ class Home extends Component {
 
   getList() {
     console.log("getList");
-    axios.get(URL).then(resp =>
+    axios.get(URL_API).then(resp =>
       this.setState({
         ...this.state,
         list: resp.data
@@ -62,7 +62,7 @@ class Home extends Component {
   }
 
   deleteItem(item) {
-    axios.delete(`${URL}/${item.id}`).then(res => this.refresh());
+    axios.delete(`${URL_API}/${item.id}`).then(res => this.getList());
   }
 
   formChange() {

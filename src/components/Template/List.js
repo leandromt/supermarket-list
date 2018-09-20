@@ -4,18 +4,24 @@ import IconButton from "./IconButton";
 export default props => {
   const renderRows = () => {
     const list = props.list || [];
-    return list.map(item => (
-      <tr key={item.id}>
-        <td>{item.name}</td>
-        <td>
-          <IconButton
-            color="danger"
-            icon="trash-o"
-            onClick={() => props.deleteItem(item)}
-          />
-        </td>
-      </tr>
-    ));
+    return list.map(item => {
+      if (item.parentId === null) {
+        return (
+          <tr key={item.id}>
+            <td>{item.name}</td>
+            <td>
+              <IconButton
+                color="danger"
+                icon="trash-o"
+                onClick={() => props.deleteItem(item)}
+              />
+            </td>
+          </tr>
+        );
+      } else {
+        return null;
+      }
+    });
   };
 
   return (

@@ -8,7 +8,7 @@ export default props => (
         <input
           id="description"
           className="form-control"
-          placeholder="Add item"
+          placeholder="add item"
           onChange={props.formChange}
           value={props.description}
         />
