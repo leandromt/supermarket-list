@@ -1,3 +1,7 @@
+import "bootstrap/dist/css/bootstrap.min.css";
+import "font-awesome/css/font-awesome.min.css";
+import "./custom.css";
+
 import React, { Component } from "react";
 import socketIOClient from "socket.io-client";
 
