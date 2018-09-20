@@ -5,6 +5,7 @@ import axios from "axios";
 
 // Components
 import Header from "./Header";
+import List from "./List";
 
 // Constantes
 const URL = "http://localhost:3000/categories";
@@ -42,6 +43,12 @@ class Home extends Component {
     );
   }
 
+  deleteItem(item) {
+    //axios.delete(`${URL}/${item._id}`).then(res => this.refresh());
+    console.log(item);
+    console.log("Remove!");
+  }
+
   render() {
     const { response } = this.state;
     return (
@@ -49,6 +56,10 @@ class Home extends Component {
         <Header name="Home" small="MyList" />
 
         <div>{response ? <p>Change</p> : <p>Loading...</p>}</div>
+
+        <List list={this.state.list} deleteItem={this.deleteItem} />
+
+        <hr />
       </div>
     );
   }
