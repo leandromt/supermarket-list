@@ -4,12 +4,12 @@
 
 Desktop Version
 
-![](https://raw.githubusercontent.com/leandromt/supermarket-list/master/static/img/git/vue-firebase.png)
+![](https://raw.githubusercontent.com/leandromt/supermarket-list/master/src/img/preview/home.png)
+![](https://raw.githubusercontent.com/leandromt/supermarket-list/master/src/img/preview/about.png)
 
 Mobile Version
 
-![](https://raw.githubusercontent.com/leandromt/supermarket-list/master/static/img/git/vue-pwa-1.png)
-![](https://raw.githubusercontent.com/leandromt/supermarket-list/master/static/img/git/vue-pwa-2.png)
+![](https://raw.githubusercontent.com/leandromt/supermarket-list/master/src/img/preview/mobile.png)
 
 ## Build Setup
 
