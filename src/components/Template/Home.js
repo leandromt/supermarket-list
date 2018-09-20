@@ -28,9 +28,21 @@ class Home extends Component {
   componentDidMount() {
     const { endpoint } = this.state;
     const socket = socketIOClient(endpoint);
-    socket.on("CATEGORY_CREATED", data => this.setState({ response: data }));
-    socket.on("CATEGORY_UPDATED", data => this.setState({ response: data }));
-    socket.on("CATEGORY_DELETED", data => this.setState({ response: data }));
+
+    socket.on("CATEGORY_CREATED", data => {
+      this.getList();
+      return this.setState({ response: data });
+    });
+
+    socket.on("CATEGORY_UPDATED", data => {
+      this.getList();
+      return this.setState({ response: data });
+    });
+
+    socket.on("CATEGORY_DELETED", data => {
+      this.getList();
+      return this.setState({ response: data });
+    });
   }
 
   getList() {
