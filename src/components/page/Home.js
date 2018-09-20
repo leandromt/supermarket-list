@@ -52,10 +52,15 @@ class Home extends Component {
     });
   }
 
+  componentWillUnmount() {
+    this.getList();
+  }
+
   getList() {
     axios.get(URL_API).then(resp =>
       this.setState({
         ...this.state,
+        nameNewItem: "",
         list: resp.data
       })
     );
