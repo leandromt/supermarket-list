@@ -18,6 +18,7 @@ class Home extends Component {
     super(props);
 
     this.state = {
+      nameNewItem: "",
       response: false,
       endpoint: URL_SOCKET,
       list: []
@@ -52,7 +53,6 @@ class Home extends Component {
   }
 
   getList() {
-    console.log("getList");
     axios.get(URL_API).then(resp =>
       this.setState({
         ...this.state,
@@ -65,25 +65,24 @@ class Home extends Component {
     axios.delete(`${URL_API}/${item.id}`).then(res => this.getList());
   }
 
-  formChange() {
-    console.log("Forme change");
+  formChange(e) {
+    this.setState({
+      ...this.state,
+      nameNewItem: e.target.value
+    });
   }
 
   formAdd() {
-    console.log("Forme Add");
+    const nameNewItem = this.state.nameNewItem;
+    axios.post(URL_API, { name: nameNewItem }).then(resp => this.getList());
   }
 
   render() {
-    const { response } = this.state;
     return (
       <div>
         <Header name="Home" small="MyList" />
         <Form formChange={this.formChange} formAdd={this.formAdd} />
         <List list={this.state.list} deleteItem={this.deleteItem} />
-
-        <div>{response ? <p>Change</p> : <p>Loading...</p>}</div>
-
-        <hr />
       </div>
     );
   }
