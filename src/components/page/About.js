@@ -3,8 +3,12 @@ import PageHeader from "../template/Header";
 
 export default props => (
   <div>
-    <PageHeader name="About" small="App SupermarketList" />
-
+    <PageHeader name="About" small="App Supermarket" />
+    <br />
+    <p>
+      This is an application developed for the job interview of Casa Magalhães.
+      It was in development React Js and Bootstrap
+    </p>
     <h4>GitHub</h4>
     <p>
       <a href="https://github.com/leandromt/supermarket-list">

@@ -1,5 +1,5 @@
 import React from "react";
-import Button from "./IconButton";
+import IconButton from "./IconButton";
 
 export default props => (
   <div className="pb-2" role="form">
@@ -15,7 +15,12 @@ export default props => (
       </div>
 
       <div className="col-3 col-md-2 col-lg-2 col-xl-2">
-        <Button color="primary" icon="plus" onClick={props.formAdd} />
+        <IconButton
+          color="primary"
+          icon="plus"
+          onClick={props.formAdd}
+          title="Add new item"
+        />
       </div>
     </div>
   </div>

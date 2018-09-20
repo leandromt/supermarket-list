@@ -12,24 +12,6 @@ import IconButton from "../template/IconButton";
 const URL_API = "http://localhost:3000/categories";
 const URL_SOCKET = "http://localhost:3001";
 
-const ListRender = ({ items, parentId = null }) => (
-  <ul className="list-group">
-    {items.filter(item => item.parentId === parentId).map(item => (
-      <li className="list-group-item" key={item.id}>
-        {item.name}
-        <IconButton
-          color="danger"
-          icon="trash-o"
-          onClick={() => this.deleteItem(item)}
-        />
-        {items.find(testItem => testItem.parentId === item.id) && (
-          <ListRender items={items} parentId={item.id} />
-        )}
-      </li>
-    ))}
-  </ul>
-);
-
 // Component Statefull
 class Home extends Component {
   constructor(props) {
@@ -96,6 +78,24 @@ class Home extends Component {
   }
 
   render() {
+    const ListRender = ({ items, parentId = null }) => (
+      <ul className="list-group">
+        {items.filter(item => item.parentId === parentId).map(item => (
+          <li className="list-group-item" key={item.id}>
+            {item.name}
+            <IconButton
+              color="danger"
+              icon="trash-o"
+              onClick={() => this.deleteItem(item)}
+              title="Remove this item"
+            />
+            {items.find(testItem => testItem.parentId === item.id) && (
+              <ListRender items={items} parentId={item.id} />
+            )}
+          </li>
+        ))}
+      </ul>
+    );
     return (
       <div>
         <Header name="Home" small="MyList" />
