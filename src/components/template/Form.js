@@ -4,7 +4,7 @@ import Button from "./IconButton";
 export default props => (
   <div className="pb-2" role="form">
     <div className="row">
-      <div className="col-sm-12 col-md-9 col-lg-10 col-xl-10">
+      <div className="col-9 col-md-10 col-lg-10 col-xl-10">
         <input
           id="description"
           className="form-control"
@@ -14,7 +14,7 @@ export default props => (
         />
       </div>
 
-      <div className="col-sm-12 col-md-3 col-lg-2 col-xl-2">
+      <div className="col-3 col-md-2 col-lg-2 col-xl-2">
         <Button color="primary" icon="plus" onClick={props.formAdd} />
       </div>
     </div>
