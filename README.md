@@ -29,7 +29,3 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 ## License
 
 [MIT](https://github.com/dmtrbrl/tmdb-app/blob/master/LICENSE)
-
-## Firebase Hosting
-
-[docs](https://firebase.google.com/docs/hosting/)
