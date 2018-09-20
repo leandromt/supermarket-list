@@ -9,7 +9,8 @@ import List from "./List";
 import Form from "./Form";
 
 // Constants
-const URL = "http://localhost:3000/categories";
+const URL_API = "http://localhost:3000/categories";
+const URL_SOCKET = "http://localhost:3001";
 
 // Component Statefull
 class Home extends Component {
@@ -18,7 +19,7 @@ class Home extends Component {
 
     this.state = {
       response: false,
-      endpoint: "http://localhost:3001",
+      endpoint: URL_SOCKET,
       list: []
     };
 
@@ -61,9 +62,7 @@ class Home extends Component {
   }
 
   deleteItem(item) {
-    //axios.delete(`${URL}/${item._id}`).then(res => this.refresh());
-    console.log(item);
-    console.log("Remove!");
+    axios.delete(`${URL}/${item.id}`).then(res => this.refresh());
   }
 
   formChange() {
