@@ -2,6 +2,12 @@ import React from "react";
 import IconButton from "./IconButton";
 
 export default props => {
+  function validatitionForm(newItemValidation) {
+    return newItemValidation
+      ? "form-control form-true"
+      : "form-control border border-danger";
+  }
+
   const keyAdd = e => {
     if (e.key === "Enter") {
       props.formAdd();
@@ -16,10 +22,10 @@ export default props => {
         <div className="col-9 col-md-10 col-lg-10 col-xl-10">
           <input
             id="description"
-            className="form-control"
+            className={validatitionForm(props.newItemValidation)}
             placeholder="add item"
             onChange={props.formChange}
-            value={props.description}
+            value={props.nameNewItem === "" ? "" : props.description}
             onKeyUp={keyAdd}
           />
         </div>

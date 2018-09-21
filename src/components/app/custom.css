@@ -20,6 +20,13 @@ footer.container {
 }
 .container-form {
   background-color: #f7f7f9;
+  -moz-transition: all 0.3s ease-in;
+  -webkit-transition: all 0.3s ease-in;
+  -o-transition: all 0.3s ease-in;
+  transition: all 0.3s ease-in;
+}
+.container-form:hover {
+  background-color: #e4e4ee;
 }
 
 /* width */

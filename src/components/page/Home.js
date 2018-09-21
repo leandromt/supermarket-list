@@ -19,10 +19,11 @@ class Home extends Component {
     super(props);
 
     this.state = {
-      nameNewItem: "",
       response: false,
       endpoint: URL_SOCKET,
-      list: []
+      list: [],
+      nameNewItem: "",
+      newItemValidation: true
     };
 
     // Binds
@@ -59,7 +60,8 @@ class Home extends Component {
       this.setState({
         ...this.state,
         nameNewItem: "",
-        list: resp.data
+        list: resp.data,
+        newItemValidation: true
       })
     );
   }
@@ -83,6 +85,8 @@ class Home extends Component {
     const nameNewItem = this.state.nameNewItem;
     if (nameNewItem !== "") {
       axios.post(URL_API, { name: nameNewItem }).then(resp => this.getList());
+    } else {
+      this.setState({ ...this.state, newItemValidation: false });
     }
   }
 
@@ -122,7 +126,12 @@ class Home extends Component {
     return (
       <div>
         <Header name="Home" small="MyList" />
-        <Form formChange={this.formChange} formAdd={this.formAdd} />
+        <Form
+          formChange={this.formChange}
+          formAdd={this.formAdd}
+          nameNewItem={this.state.nameNewItem}
+          newItemValidation={this.state.newItemValidation}
+        />
         <ListRender items={this.state.list} deleteItem={this.deleteItem} />
         <Modal />
       </div>
