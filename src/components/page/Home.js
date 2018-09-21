@@ -27,6 +27,7 @@ class Home extends Component {
     // Binds
     this.formChange = this.formChange.bind(this);
     this.formAdd = this.formAdd.bind(this);
+    this.updateItem = this.updateItem.bind(this);
 
     // Initialize
     this.getList();
@@ -52,10 +53,6 @@ class Home extends Component {
     });
   }
 
-  componentWillUnmount() {
-    this.getList();
-  }
-
   getList() {
     axios.get(URL_API).then(resp =>
       this.setState({
@@ -68,6 +65,10 @@ class Home extends Component {
 
   deleteItem(item) {
     axios.delete(`${URL_API}/${item.id}`).then(res => this.getList());
+  }
+
+  updateItem(item) {
+    console.log(item);
   }
 
   formChange(e) {
@@ -86,20 +87,31 @@ class Home extends Component {
     // Recursive Render Hierarchical List
     const ListRender = ({ items, parentId = null }) => (
       <ul className="list-group">
-        {items.filter(item => item.parentId === parentId).map(item => (
-          <li className="list-group-item" key={item.id}>
-            {item.name}
-            <IconButton
-              color="danger"
-              icon="trash-o"
-              onClick={() => this.deleteItem(item)}
-              title="Remove this item"
-            />
-            {items.find(testItem => testItem.parentId === item.id) && (
-              <ListRender items={items} parentId={item.id} />
-            )}
-          </li>
-        ))}
+        {items
+          .filter(item => item.parentId === parentId)
+          .sort((a, b) => a.id < b.id)
+          .map(item => (
+            <li className="list-group-item" key={item.id}>
+              <span>{item.name}</span>
+              <div className="btns-list">
+                <IconButton
+                  color="warning"
+                  icon="pencil-square-o"
+                  onClick={() => this.updateItem(item)}
+                  title="Edit this item"
+                />
+                <IconButton
+                  color="danger"
+                  icon="trash"
+                  onClick={() => this.deleteItem(item)}
+                  title="Remove this item"
+                />
+              </div>
+              {items.find(testItem => testItem.parentId === item.id) && (
+                <ListRender items={items} parentId={item.id} />
+              )}
+            </li>
+          ))}
       </ul>
     );
     return (

@@ -1,8 +1,14 @@
 .list-group-item .btn {
-  padding: 0px 5px;
+  padding: 0px 7px;
   margin-left: 5px;
   margin-bottom: 5px;
 }
+.list-group-item .btn i {
+  margin-top: 5px;
+}
 footer.container {
   padding: 50px 20px;
+}
+.btns-list {
+  float: right;
 }
