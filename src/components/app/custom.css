@@ -1,3 +1,6 @@
+body {
+  padding-top: 4.5rem;
+}
 .list-group .list-group {
   margin-top: 20px;
 }
@@ -36,5 +39,5 @@ footer.container {
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-  background: #555;
+  background: #6c757d;
 }
