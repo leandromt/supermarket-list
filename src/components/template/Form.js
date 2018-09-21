@@ -14,12 +14,9 @@ export default props => {
     }
   };
   return (
-    <div
-      className="container-form rounded pl-2 pt-2 pb-2 mb-4 mt-3"
-      role="form"
-    >
-      <div className="row">
-        <div className="col-9 col-md-10 col-lg-10 col-xl-10">
+    <div className="container-form rounded pl-2 pt-2 pb-2 mb-4 mt-3">
+      <div className="form-row">
+        <div className="form-group col-md-6">
           <input
             id="description"
             className={validatitionForm(props.newItemValidation)}
@@ -29,8 +26,13 @@ export default props => {
             onKeyUp={keyAdd}
           />
         </div>
-
-        <div className="col-3 col-md-2 col-lg-2 col-xl-2">
+        <div className="form-group col-md-4">
+          {/* <select id="inputState" className="form-control">
+            <option selected>Father</option>
+            <option>...</option>
+          </select> */}
+        </div>
+        <div className="form-group col-md-2">
           <IconButton
             color="primary"
             icon="plus"
