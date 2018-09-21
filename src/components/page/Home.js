@@ -7,6 +7,7 @@ import axios from "axios";
 import Header from "../template/Header";
 import Form from "../template/Form";
 import IconButton from "../template/IconButton";
+import Modal from "../template/Modal";
 
 // Constants
 const URL_API = "http://localhost:3000/categories";
@@ -80,7 +81,9 @@ class Home extends Component {
 
   formAdd() {
     const nameNewItem = this.state.nameNewItem;
-    axios.post(URL_API, { name: nameNewItem }).then(resp => this.getList());
+    if (nameNewItem !== "") {
+      axios.post(URL_API, { name: nameNewItem }).then(resp => this.getList());
+    }
   }
 
   render() {
@@ -99,6 +102,8 @@ class Home extends Component {
                   icon="pencil-square-o"
                   onClick={() => this.updateItem(item)}
                   title="Edit this item"
+                  dataToogle
+                  dataTarget
                 />
                 <IconButton
                   color="danger"
@@ -119,6 +124,7 @@ class Home extends Component {
         <Header name="Home" small="MyList" />
         <Form formChange={this.formChange} formAdd={this.formAdd} />
         <ListRender items={this.state.list} deleteItem={this.deleteItem} />
+        <Modal />
       </div>
     );
   }
