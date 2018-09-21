@@ -8,7 +8,7 @@ export default props => {
     }
   };
   return (
-    <div className="pb-2" role="form">
+    <div className="container-form rounded pl-2 pt-2 pb-2 mb-4" role="form">
       <div className="row">
         <div className="col-9 col-md-10 col-lg-10 col-xl-10">
           <input

@@ -1,3 +1,6 @@
+.list-group .list-group {
+  margin-top: 20px;
+}
 .list-group-item .btn {
   padding: 0px 7px;
   margin-left: 5px;
@@ -11,4 +14,7 @@ footer.container {
 }
 .btns-list {
   float: right;
+}
+.container-form {
+  background-color: #f7f7f9;
 }
