@@ -23,12 +23,14 @@ class Home extends Component {
       endpoint: URL_SOCKET,
       list: [],
       nameNewItem: "",
-      newItemValidation: true
+      newItemValidation: true,
+      itemUpdate: null
     };
 
     // Binds
     this.formChange = this.formChange.bind(this);
     this.formAdd = this.formAdd.bind(this);
+    this.openModalEdit = this.openModalEdit.bind(this);
     this.updateItem = this.updateItem.bind(this);
 
     // Initialize
@@ -61,7 +63,8 @@ class Home extends Component {
         ...this.state,
         nameNewItem: "",
         list: resp.data,
-        newItemValidation: true
+        newItemValidation: true,
+        itemUpdate: null
       })
     );
   }
@@ -70,8 +73,21 @@ class Home extends Component {
     axios.delete(`${URL_API}/${item.id}`).then(res => this.getList());
   }
 
+  openModalEdit(item) {
+    this.setState({ ...this.state, itemUpdate: item });
+  }
+
   updateItem(item) {
     console.log(item);
+    console.log("Vamos remover este item: " + item.id + item.name);
+    axios
+      .patch(`${URL_API}/${item.id}`, {
+        name: item.name,
+        parentId: item.parentId,
+        id: item.id
+      })
+      .then(resp => this.getList())
+      .catch(e => console.log(e));
   }
 
   formChange(e) {
@@ -104,7 +120,7 @@ class Home extends Component {
                 <IconButton
                   color="warning"
                   icon="pencil-square-o"
-                  onClick={() => this.updateItem(item)}
+                  onClick={() => this.openModalEdit(item)}
                   title="Edit this item"
                   dataToogle
                   dataTarget
@@ -133,7 +149,11 @@ class Home extends Component {
           newItemValidation={this.state.newItemValidation}
         />
         <ListRender items={this.state.list} deleteItem={this.deleteItem} />
-        <Modal />
+        <Modal
+          item={this.state.itemUpdate}
+          list={this.state.list}
+          updateItem={this.updateItem}
+        />
       </div>
     );
   }

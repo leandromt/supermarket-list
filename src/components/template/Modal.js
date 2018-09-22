@@ -1,6 +1,12 @@
 import React from "react";
 
 export default props => {
+  // Validation if exists
+  const item =
+    props.item !== undefined && props.item !== null ? props.item : null;
+  const itemName =
+    props.item !== undefined && props.item !== null ? props.item.name : "";
+
   return (
     <div
       className="modal fade"
@@ -25,7 +31,14 @@ export default props => {
               <span aria-hidden="true">&times;</span>
             </button>
           </div>
-          <div className="modal-body">coming soon...</div>
+          <div className="modal-body">
+            <input
+              id="input-form"
+              className="form-control"
+              placeholder="edit item"
+              defaultValue={itemName}
+            />
+          </div>
           <div className="modal-footer">
             <button
               type="button"
@@ -34,7 +47,12 @@ export default props => {
             >
               Close
             </button>
-            <button type="button" className="btn btn-primary">
+            <button
+              type="button"
+              className="btn btn-primary"
+              data-dismiss="modal"
+              onClick={() => props.updateItem(item)}
+            >
               Save changes
             </button>
           </div>
