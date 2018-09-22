@@ -141,6 +141,7 @@ class Home extends Component {
           formAdd={this.formAdd}
           nameNewItem={this.state.nameNewItem}
           newItemValidation={this.state.newItemValidation}
+          list={this.state.list}
         />
         <ListRender items={this.state.list} deleteItem={this.deleteItem} />
         <Modal

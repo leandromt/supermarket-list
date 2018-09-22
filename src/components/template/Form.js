@@ -1,5 +1,6 @@
 import React from "react";
 import IconButton from "./IconButton";
+import SelectForm from "./SelectForm";
 
 export default props => {
   function validatitionForm(newItemValidation) {
@@ -14,7 +15,7 @@ export default props => {
     }
   };
   return (
-    <div className="container-form rounded pl-2 pt-2 pb-2 mb-4 mt-3">
+    <div className="container-form rounded pl-2 pr-2 pt-3 mb-4 mt-3">
       <div className="form-row">
         <div className="form-group col-md-6">
           <input
@@ -27,10 +28,7 @@ export default props => {
           />
         </div>
         <div className="form-group col-md-4">
-          {/* <select id="inputState" className="form-control">
-            <option selected>Father</option>
-            <option>...</option>
-          </select> */}
+          <SelectForm list={props.list} />
         </div>
         <div className="form-group col-md-2">
           <IconButton
