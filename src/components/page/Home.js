@@ -77,17 +77,11 @@ class Home extends Component {
     this.setState({ ...this.state, itemUpdate: item });
   }
 
-  updateItem(item) {
-    console.log(item);
-    console.log("Vamos remover este item: " + item.id + item.name);
+  updateItem(oldData, newData) {
     axios
-      .patch(`${URL_API}/${item.id}`, {
-        name: item.name,
-        parentId: item.parentId,
-        id: item.id
-      })
+      .put(`${URL_API}/${oldData.id}`, { name: newData })
       .then(resp => this.getList())
-      .catch(e => console.log(e));
+      .catch(error => console.log(error));
   }
 
   formChange(e) {

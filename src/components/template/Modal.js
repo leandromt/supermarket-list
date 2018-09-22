@@ -7,6 +7,8 @@ export default props => {
   const itemName =
     props.item !== undefined && props.item !== null ? props.item.name : "";
 
+  this.myRef = React.createRef();
+
   return (
     <div
       className="modal fade"
@@ -37,6 +39,7 @@ export default props => {
               className="form-control"
               placeholder="edit item"
               defaultValue={itemName}
+              ref={this.myRef}
             />
           </div>
           <div className="modal-footer">
@@ -51,7 +54,7 @@ export default props => {
               type="button"
               className="btn btn-primary"
               data-dismiss="modal"
-              onClick={() => props.updateItem(item)}
+              onClick={() => props.updateItem(item, this.myRef.current.value)}
             >
               Save changes
             </button>
