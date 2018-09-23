@@ -25,14 +25,16 @@ class Home extends Component {
       list: [],
       nameNewItem: "",
       newItemValidation: true,
-      itemUpdate: null
+      itemUpdate: null,
+      currentSelect: null
     };
 
     // Binds
     this.formChange = this.formChange.bind(this);
-    this.formAdd = this.formAdd.bind(this);
     this.openModalEdit = this.openModalEdit.bind(this);
     this.updateItem = this.updateItem.bind(this);
+    this.formSubmit = this.formSubmit.bind(this);
+    this.selectChange = this.selectChange.bind(this);
 
     // Initialize
     this.getList();
@@ -92,13 +94,32 @@ class Home extends Component {
     });
   }
 
-  formAdd() {
-    const nameNewItem = this.state.nameNewItem;
-    if (nameNewItem !== "") {
-      axios.post(URL_API, { name: nameNewItem }).then(resp => this.getList());
+  selectChange(e) {
+    const currentSelect = e.target.value;
+    this.setState({ ...this.state, currentSelect });
+  }
+
+  formSubmit(e) {
+    const data = JSON.stringify({
+      name: this.state.nameNewItem,
+      parentId:
+        this.state.currentSelect === "" || this.state.currentSelect === null
+          ? null
+          : parseInt("10", this.state.currentSelect)
+    });
+
+    if (this.state.nameNewItem !== "") {
+      axios
+        .post(URL_API, data, {
+          headers: { "Content-Type": "application/json" }
+        })
+        .then(resp => this.getList())
+        .catch(error => console.log(error));
     } else {
       this.setState({ ...this.state, newItemValidation: false });
     }
+
+    e.preventDefault();
   }
 
   render() {
@@ -140,6 +161,8 @@ class Home extends Component {
           nameNewItem={this.state.nameNewItem}
           newItemValidation={this.state.newItemValidation}
           list={this.state.list}
+          formSubmit={this.formSubmit}
+          selectChange={this.selectChange}
         />
         <ListRender items={this.state.list} deleteItem={this.deleteItem} />
         <Modal

@@ -15,11 +15,15 @@ export default props => {
 
   const keyAdd = e => {
     if (e.key === "Enter") {
-      props.formAdd();
+      props.formSubmit(e);
     }
   };
+
   return (
-    <div className="container-form rounded pl-2 pr-2 pt-3 mb-4 mt-3">
+    <form
+      className="container-form rounded pl-2 pr-2 pt-3 mb-4 mt-3"
+      onSubmit={props.formSubmit}
+    >
       <div className="form-row">
         <div className="form-group col-md-6">
           <input
@@ -32,17 +36,12 @@ export default props => {
           />
         </div>
         <div className="form-group col-md-4">
-          <SelectForm list={props.list} />
+          <SelectForm list={props.list} selectChange={props.selectChange} />
         </div>
         <div className="form-group col-md-2">
-          <IconButton
-            color="primary"
-            icon="plus"
-            onClick={props.formAdd}
-            title="Add new item"
-          />
+          <IconButton color="primary" icon="plus" title="Add new item" />
         </div>
       </div>
-    </div>
+    </form>
   );
 };

@@ -9,6 +9,7 @@ export default props => {
       className="form-control"
       defaultValue=""
       placeholder="select the parent"
+      onChange={props.selectChange}
     >
       <option value="">select the parent</option>
       {props.list.map(item => (
