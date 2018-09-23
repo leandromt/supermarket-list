@@ -1,5 +1,10 @@
 body {
   padding-top: 4.5rem;
+  background: #feffff;
+  background: -moz-linear-gradient(top, #feffff 0%, #d2ebf9 100%);
+  background: -webkit-linear-gradient(top, #feffff 0%, #d2ebf9 100%);
+  background: linear-gradient(to bottom, #feffff 0%, #d2ebf9 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#feffff', endColorstr='#d2ebf9',GradientType=0 ); /* IE6-9 */
 }
 .list-group .list-group {
   margin-top: 20px;
