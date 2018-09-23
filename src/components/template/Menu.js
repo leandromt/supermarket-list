@@ -1,6 +1,8 @@
+// Dependencies
 import React from "react";
 import { NavLink } from "react-router-dom";
 
+// Component Stateless
 export default props => (
   <nav className="navbar navbar-expand-lg fixed-top navbar-dark bg-dark">
     <NavLink className="navbar-brand" to="/">

@@ -1,8 +1,11 @@
+// Dependencies
 import React, { Component } from "react";
 import { NavLink } from "react-router-dom";
 
+// Custom Components
 import PageHeader from "../template/Header";
 
+// Component Stateless
 class Erro404 extends Component {
   render() {
     return (

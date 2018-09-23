@@ -1,5 +1,7 @@
+// Dependencies
 import React from "react";
 
+// Component Stateless
 export default props => {
   console.log(props.list);
   return (

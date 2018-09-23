@@ -3,7 +3,7 @@ import React, { Component } from "react";
 import socketIOClient from "socket.io-client";
 import axios from "axios";
 
-// Components
+// Custom Components
 import Header from "../template/Header";
 import Form from "../template/Form";
 import IconButton from "../template/IconButton";
@@ -18,6 +18,7 @@ class Home extends Component {
   constructor(props) {
     super(props);
 
+    // States
     this.state = {
       response: false,
       endpoint: URL_SOCKET,

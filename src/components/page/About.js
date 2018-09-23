@@ -1,6 +1,10 @@
+// Dependencies
 import React from "react";
+
+// Custom Components
 import PageHeader from "../template/Header";
 
+// Component Stateless
 export default props => (
   <div>
     <PageHeader name="About" small="App Supermarket" />

@@ -1,12 +1,15 @@
+// Dependencies
 import React from "react";
 
+// Component Stateless
 export default props => {
-  // Validation if exists
+  // Validation if item exists
   const item =
     props.item !== undefined && props.item !== null ? props.item : null;
   const itemName =
     props.item !== undefined && props.item !== null ? props.item.name : "";
 
+  // Reference Input Form
   this.myRef = React.createRef();
 
   return (

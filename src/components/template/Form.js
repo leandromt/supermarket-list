@@ -1,7 +1,11 @@
+// Dependencies
 import React from "react";
+
+// Custom Components
 import IconButton from "./IconButton";
 import SelectForm from "./SelectForm";
 
+// Component Stateless
 export default props => {
   function validatitionForm(newItemValidation) {
     return newItemValidation

@@ -1,5 +1,7 @@
+// Dependencies
 import React from "react";
 
+// Component Stateless
 export default props => {
   return (
     <header className="pb-2 mt-4 mb-2 border-bottom">
