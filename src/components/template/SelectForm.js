@@ -11,7 +11,7 @@ export default props => {
       placeholder="select the parent"
     >
       <option value="">select the parent</option>
-      {props.list.sort((a, b) => a.name > b.name).map(item => (
+      {props.list.map(item => (
         <option key={item.id} value={item.id}>
           {item.name}
         </option>

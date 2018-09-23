@@ -14,3 +14,6 @@ registerServiceWorker();
 if (module.hot) {
   module.hot.accept();
 }
+
+console.disableYellowBox = true;
+console.disableRedBox = true;

@@ -63,7 +63,7 @@ class Home extends Component {
       this.setState({
         ...this.state,
         nameNewItem: "",
-        list: resp.data,
+        list: resp.data.reverse(),
         newItemValidation: true,
         itemUpdate: null
       })
@@ -105,33 +105,30 @@ class Home extends Component {
     // Recursive Render Hierarchical List
     const ListRender = ({ items, parentId = null }) => (
       <ul className="list-group">
-        {items
-          .reverse()
-          .filter(item => item.parentId === parentId)
-          .map(item => (
-            <li className="list-group-item" key={item.id}>
-              <span>{item.name}</span>
-              <div className="btns-list">
-                <IconButton
-                  color="warning"
-                  icon="pencil-square-o"
-                  onClick={() => this.openModalEdit(item)}
-                  title="Edit this item"
-                  dataToogle
-                  dataTarget
-                />
-                <IconButton
-                  color="danger"
-                  icon="trash"
-                  onClick={() => this.deleteItem(item)}
-                  title="Remove this item"
-                />
-              </div>
-              {items.find(testItem => testItem.parentId === item.id) && (
-                <ListRender items={items} parentId={item.id} />
-              )}
-            </li>
-          ))}
+        {items.filter(item => item.parentId === parentId).map(item => (
+          <li className="list-group-item" key={item.id}>
+            <span>{item.name}</span>
+            <div className="btns-list">
+              <IconButton
+                color="warning"
+                icon="pencil-square-o"
+                onClick={() => this.openModalEdit(item)}
+                title="Edit this item"
+                dataToogle
+                dataTarget
+              />
+              <IconButton
+                color="danger"
+                icon="trash"
+                onClick={() => this.deleteItem(item)}
+                title="Remove this item"
+              />
+            </div>
+            {items.find(testItem => testItem.parentId === item.id) && (
+              <ListRender items={items} parentId={item.id} />
+            )}
+          </li>
+        ))}
       </ul>
     );
     return (
