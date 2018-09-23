@@ -9,10 +9,10 @@ export default props => {
       id="inputState"
       className="form-control"
       defaultValue=""
-      placeholder="Father"
+      placeholder="select the parent"
     >
       <option disabled value="">
-        father
+        select the parent
       </option>
       {props.list.map(item => (
         <option key={item.id} value={item.id}>

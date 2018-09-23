@@ -1,10 +1,15 @@
-body {
-  padding-top: 4.5rem;
+html {
+  min-height: 100%;
   background: #feffff;
   background: -moz-linear-gradient(top, #feffff 0%, #d2ebf9 100%);
   background: -webkit-linear-gradient(top, #feffff 0%, #d2ebf9 100%);
   background: linear-gradient(to bottom, #feffff 0%, #d2ebf9 100%);
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#feffff', endColorstr='#d2ebf9',GradientType=0 ); /* IE6-9 */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#feffff', endColorstr='#d2ebf9',GradientType=0 );
+}
+
+body {
+  padding-top: 4.5rem;
+  background-color: transparent;
 }
 .list-group .list-group {
   margin-top: 20px;
@@ -24,7 +29,7 @@ footer.container {
   float: right;
 }
 .container-form {
-  background-color: #f7f7f9;
+  background-color: #e4e4ee;
   -moz-transition: all 0.3s ease-in;
   -webkit-transition: all 0.3s ease-in;
   -o-transition: all 0.3s ease-in;
