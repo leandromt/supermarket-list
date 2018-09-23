@@ -106,8 +106,8 @@ class Home extends Component {
     const ListRender = ({ items, parentId = null }) => (
       <ul className="list-group">
         {items
+          .reverse()
           .filter(item => item.parentId === parentId)
-          .sort((a, b) => a.id < b.id)
           .map(item => (
             <li className="list-group-item" key={item.id}>
               <span>{item.name}</span>
