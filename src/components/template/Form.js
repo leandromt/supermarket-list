@@ -31,7 +31,7 @@ export default props => {
             className={validatitionForm(props.newItemValidation)}
             placeholder="add new item"
             onChange={props.formChange}
-            value={props.nameNewItem}
+            value={props.nameNewItem === "" ? "" : props.description}
             onKeyUp={keyAdd}
           />
         </div>
